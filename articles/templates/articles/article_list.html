@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>CRUD Статьи</title></head>
+<body>
+    <h1>Список статей для CRUD</h1>
+    <a href="{% url 'article_create' %}">+ добавить статью</a>
+    <ul>
+    {% for a in articles %}
+        <li>
+            <a href="{% url 'article_detail' a.pk %}">{{ a.title }}</a> | 
+            <a href="{% url 'article_update' a.pk %}">изменить</a> | 
+            <a href="{% url 'article_delete' a.pk %}">удалить</a>
+        </li>
+    {% empty %}
+        <li>пока нет статей</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
